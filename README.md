@@ -18,12 +18,12 @@
 > Ngoài ra chấp nhận các thiết lập mặc định khác
 - Cài Postgres SQL xong thì mở pgAdmin, mở file **database_oop.sql**, rồi chạy để tạo CSDL
 - Khi chạy, thiết lập **tham số máy ảo (VM arguments)** như sau:
-- **Nếu có thay đổi file nào thì COMMIT và PUSH**
-- (chi tiết về cách làm việc với Git và GitHub các bạn vui lòng tìm hiểu trên mạng)
 ```
 --module-path [YOUR_PATH_HERE] --add-modules javafx.controls,javafx.fxml,javafx.base,javafx.web,javafx.graphics
 //[YOUR_PATH_HERE] là xâu ký tự bao trong ngoặc kép chỉ dẫn đường dẫn đến thư mục lib của JavaFX
 ```
+- **Nếu có thay đổi file nào thì COMMIT và PUSH**
+- (chi tiết về cách làm việc với Git và GitHub các bạn vui lòng tìm hiểu trên mạng)
 
 ## Cấu trúc thư mục
 - Thư mục **projectLibraries** chứa các thư viện cần để app vận hành
