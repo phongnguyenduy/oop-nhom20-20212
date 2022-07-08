@@ -25,8 +25,8 @@
     <orderEntry type="library" exported="" name="lib" level="project" />
     <orderEntry type="library" exported="" name="demo" level="project" />
     <orderEntry type="library" exported="" name="activation-1.1.1" level="project" />
-    <orderEntry type="library" name="lib1" level="project" />
-    <orderEntry type="library" name="javax.mail1" level="project" />
+    <orderEntry type="library" exported="" name="lib1" level="project" />
+    <orderEntry type="library" exported="" name="javax.mail1" level="project" />
     <orderEntry type="library" exported="" name="javax.mail-1.4.7" level="project" />
     <orderEntry type="library" exported="" name="charm-glisten-4.4.1" level="project" />
   </component>
