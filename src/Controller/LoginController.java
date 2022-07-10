@@ -8,7 +8,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -25,8 +24,6 @@ public class LoginController implements Initializable {
     @FXML
     private TextField inpEmail;
     @FXML
-    private TextField inpName;
-    @FXML
     private TextField inpPassword;
     @FXML
     private Label label;
@@ -37,51 +34,61 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
+        label.setVisible(false);
     }
 
     public void handleSignIn(ActionEvent actionEvent)throws IOException {
-
-         String name = inpName.getText();
          String email = inpEmail.getText();
          String password = inpPassword.getText();
-         String sql = "SELECT * FROM dang_nhap WHERE ten_dang_nhap=? AND email =? AND mat_khau=?";
+         String sqlEmail = "SELECT * FROM dang_nhap WHERE email = ?";
          try {
-             ps = con.prepareStatement(sql);
-             ps.setString(1,name);
-             ps.setString(2,email);
-             ps.setString(3,password);
+             ps = con.prepareStatement(sqlEmail);
+             ps.setString(1,email);
              rs = ps.executeQuery();
              if(!rs.next()){
-                 label.setText("Tên tài khoản,mật khẩu hoặc email không đúng!");
-             }else{
-                 Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-                 FXMLLoader loader = new FXMLLoader();
-                 loader.setLocation(getClass().getResource("/View/GUI/sample.fxml"));
-                 Parent view = loader.load();
-                 Scene scene = new Scene(view);
-                 Controller controller = loader.getController();
-                 stage.setScene(scene);
-                 stage.setHeight(750);
-                 stage.setWidth(1300);
-                 stage.setX(0);
-                 stage.setY(0);
+                 label.setVisible(true);
+                 label.setText("Tài khoản không tồn tại trong hệ thống!");
              }
-         }catch (SQLException e){
+             else {
+                 String sqlPassword = "SELECT * FROM dang_nhap WHERE email = ? AND mat_khau = ?";
+                 ps = con.prepareStatement(sqlPassword);
+                 ps.setString(1,email);
+                 ps.setString(2,password);
+                 rs = ps.executeQuery();
+                 if(!rs.next()) {
+                     label.setVisible(true);
+                     label.setText("Mật khẩu không đúng!");
+                 }
+                 else {
+                     Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+                     FXMLLoader loader = new FXMLLoader();
+                     loader.setLocation(getClass().getResource("/View/GUI/home.fxml"));
+                     Parent view = loader.load();
+                     Scene scene = new Scene(view);
+                     HomeController controller = loader.getController();
+                     stage.setScene(scene);
+                     stage.setHeight(750);
+                     stage.setWidth(1300);
+                     stage.setX(0);
+                     stage.setY(0);
+                }
+             }
+         } catch (SQLException e){
              e.printStackTrace();
          }
     }
 
-    public void add(MouseEvent event) throws IOException {
+    public void addAccount(MouseEvent event) throws IOException {
         Stage stage= (Stage) ((Node) event.getSource()).getScene().getWindow();
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/View/GUI/NewAccount.fxml"));
-        Parent viewSample = loader.load();
-        Scene scene = new Scene(viewSample,669,519);
+        Parent view = loader.load();
+        Scene scene = new Scene(view);
         stage.setScene(scene);
-        stage.setX(200);
-        stage.setY(80);
-        stage.setWidth(669);
-        stage.setHeight(519);
+        stage.setX(300);
+        stage.setY(100);
+        stage.setWidth(400);
+        stage.setHeight(500);
     }
 
 }

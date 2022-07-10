@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane fx:id="borderPane" stylesheets="@../../styles/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Controller">
+<BorderPane fx:id="borderPane" stylesheets="@../../styles/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.HomeController">
    <top>
       <HBox prefHeight="84.0" prefWidth="1300.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>

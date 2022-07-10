@@ -9,40 +9,40 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="519.0" prefWidth="669.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.NewAccountController">
+<AnchorPane prefHeight="500.0" prefWidth="400.0" style="-fx-background-color: linear-gradient(to bottom, #d219bc, #a1c9f1);" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.NewAccountController">
    <children>
-      <AnchorPane layoutX="16.0" layoutY="14.0" prefHeight="492.0" prefWidth="639.0" style="-fx-background-color: grey;">
+      <AnchorPane layoutX="80.0" layoutY="112.0" prefHeight="320.0" prefWidth="240.0" style="-fx-background-color: white; -fx-background-radius: 1em;">
          <children>
-            <AnchorPane layoutX="341.0" layoutY="48.0" prefHeight="372.0" prefWidth="245.0" style="-fx-background-color: white; -fx-background-radius: 1em;">
-               <children>
-                  <Text layoutX="54.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ADD ACCOUNT">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Text>
-                  <TextField fx:id="inpName" layoutX="48.0" layoutY="101.0" promptText="Name" />
-                  <TextField fx:id="inpEmail" layoutX="48.0" layoutY="152.0" promptText="Email" />
-                  <Button layoutX="81.0" layoutY="275.0" mnemonicParsing="false" onMouseClicked="#add" prefHeight="25.0" prefWidth="81.0" style="-fx-background-color: orange; -fx-background-radius: 1em;" text="ADD" />
-                  <Label fx:id="label" layoutX="81.0" layoutY="244.0" onMouseClicked="#back" prefHeight="17.0" prefWidth="149.0" text="Back to login" textFill="#857979" />
-                  <PasswordField fx:id="inpPassword" layoutX="48.0" layoutY="206.0" promptText="Password" />
-               </children>
-            </AnchorPane>
-            <AnchorPane layoutX="25.0" layoutY="24.0" prefHeight="420.0" prefWidth="327.0" style="-fx-background-color: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12); -fx-background-radius: 1em;">
-               <children>
-                  <VBox layoutX="79.0" layoutY="144.0" prefHeight="187.0" prefWidth="185.0" style="-fx-background-radius: 1em;">
-                     <children>
-                        <Text fill="#f3f0f0" strokeType="OUTSIDE" strokeWidth="0.0" text="#1" />
-                        <Text fill="#f5f2f2" strokeType="OUTSIDE" strokeWidth="0.0" text="Hust's Hospital">
-                           <font>
-                              <Font size="28.0" />
-                           </font>
-                        </Text>
-                        <Text fill="#f7f5f5" strokeType="OUTSIDE" strokeWidth="0.0" text="Make by team MMHC " />
-                     </children>
-                  </VBox>
-               </children>
-            </AnchorPane>
+            <Text layoutX="75.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="ĐĂNG KÝ">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <TextField fx:id="inpName" layoutX="48.0" layoutY="67.0" promptText="Tên" />
+            <TextField fx:id="inpEmail" layoutX="45.0" layoutY="106.0" promptText="Email" />
+            <Button layoutX="79.0" layoutY="219.0" mnemonicParsing="false" onMouseClicked="#add" prefHeight="25.0" prefWidth="81.0" style="-fx-background-color: #6e86a3; -fx-background-radius: 1em;" text="ĐĂNG KÝ" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Label alignment="CENTER" layoutX="48.0" layoutY="191.0" onMouseClicked="#backToLogin" prefHeight="17.0" prefWidth="149.0" text="Quay lại đăng nhập" textAlignment="CENTER" textFill="#857979" />
+            <PasswordField fx:id="inpPassword" layoutX="47.0" layoutY="148.0" promptText="Mật khẩu" />
+            <Label fx:id="label" layoutX="65.0" layoutY="267.0" prefHeight="37.0" prefWidth="109.0" text="Tài khoản đã tồn tại!" textFill="RED" wrapText="true" />
          </children>
       </AnchorPane>
+      <VBox alignment="TOP_CENTER" layoutX="50.0" layoutY="28.0" prefHeight="60.0" prefWidth="300.0" style="-fx-background-radius: 1em;">
+         <children>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="HUST'S HOSPITAL" textAlignment="CENTER">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Project nhóm 20" textAlignment="CENTER">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>

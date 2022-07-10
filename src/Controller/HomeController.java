@@ -5,10 +5,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -18,7 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
-public class Controller implements Initializable {
+public class HomeController implements Initializable {
 
     @FXML
     private BorderPane borderPane;
@@ -69,7 +67,7 @@ public class Controller implements Initializable {
         try {
             root = FXMLLoader.load(getClass().getResource("/View/GUI/" +Ui + ".fxml"));
         }catch (IOException ex){
-            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE,null,ex);
+            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE,null,ex);
         }
         borderPane.setCenter(root);
     }
@@ -78,13 +76,13 @@ public class Controller implements Initializable {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/View/GUI/LoginUI.fxml"));
-        Parent viewSample = loader.load();
-        Scene scene = new Scene(viewSample,669,519);
+        Parent view = loader.load();
+        Scene scene = new Scene(view);
         stage.setScene(scene);
-        stage.setX(200);
-        stage.setY(80);
-        stage.setWidth(669);
-        stage.setHeight(519);
+        stage.setX(300);
+        stage.setY(100);
+        stage.setWidth(400);
+        stage.setHeight(450);
     }
 
 

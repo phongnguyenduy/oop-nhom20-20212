@@ -169,7 +169,7 @@ public class DetailController implements Initializable {
     public void goBack(ActionEvent actionEvent) throws IOException {
         Stage stage= (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/View/GUI/sample.fxml"));
+        loader.setLocation(getClass().getResource("/View/GUI/home.fxml"));
         Parent viewSample = loader.load();
         Scene scene = new Scene(viewSample,750,560);
         stage.setScene(scene);
