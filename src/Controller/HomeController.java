@@ -1,4 +1,5 @@
 package Controller;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -6,7 +7,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.BorderPane;
+//import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -19,57 +21,73 @@ import java.util.logging.Logger;
 public class HomeController implements Initializable {
 
     @FXML
-    private BorderPane borderPane;
+    //private BorderPane borderPane;
+    private GridPane gridPane;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
     }
 
     @FXML
-    public void LoadUI1(MouseEvent event){
-        Load("UI_1");
+    public void LoadIndividualUI(MouseEvent event){
+        Load("IndividualUI");
     }
 
     @FXML
-    public void LoadUI2(MouseEvent event){
-        Load("UI_2");
+    public void LoadVaccinationUI(MouseEvent event){
+        Load("VaccinationUI");
     }
 
     @FXML
-    public void LoadUI3(MouseEvent event){
-        Load("UI_3");
+    public void LoadMotherUI(MouseEvent event){
+        Load("MotherUI");
     }
 
     @FXML
-    public void LoadUI4(MouseEvent event){
-        Load("UI_4");
+    public void LoadChildrenUI(MouseEvent event){
+        Load("ChildrenUI");
     }
 
     @FXML
-    public void LoadUI5(MouseEvent event){
-        Load("UI_5");
+    public void LoadVaccinationScheduleUI(MouseEvent event){
+        Load("VaccinationScheduleUI");
     }
 
     @FXML
-    public void LoadUI6(MouseEvent event){
-        Load("UI_6");
+    public void LoadMailUI(MouseEvent event){
+        Load("MailUI");
     }
 
     @FXML
-    public void LoadUI7(MouseEvent event){
-        Load("UI_7");
+    public void LoadSearchUI(MouseEvent event){
+        Load("SearchUI");
     }
 
     @FXML
-            public void showHelp(MouseEvent event){ Load("Help");}
+    public void showAbout(MouseEvent event){ Load("About");}
 
     Parent root;
+    public Node getNodeByRC(int r, int c, GridPane gp) {
+        ObservableList<Node> children = gp.getChildren();
+        for (Node node: children) {
+            int dr, dc;
+            Integer tr = gp.getRowIndex(node);
+            if (tr == null) dr = 0; else dr = tr.intValue();
+            Integer tc = gp.getColumnIndex(node);
+            if (tc == null) dc = 0; else dc = tc.intValue();
+            if (dr == r && dc == c) return node;
+        }
+        return null;
+    }
+
     public void Load(String Ui){
         try {
             root = FXMLLoader.load(getClass().getResource("/View/GUI/" +Ui + ".fxml"));
         }catch (IOException ex){
             Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE,null,ex);
         }
-        borderPane.setCenter(root);
+        Node contentNode = getNodeByRC(1,1,gridPane);
+        if (contentNode != null) gridPane.getChildren().remove(contentNode);
+        gridPane.add(root,1,1);
     }
 
     public void goBack(MouseEvent event) throws IOException {

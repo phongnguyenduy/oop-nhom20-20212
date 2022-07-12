@@ -62,7 +62,7 @@ public class LoginController implements Initializable {
                  else {
                      Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
                      FXMLLoader loader = new FXMLLoader();
-                     loader.setLocation(getClass().getResource("/View/GUI/home.fxml"));
+                     loader.setLocation(getClass().getResource("/View/GUI/Home.fxml"));
                      Parent view = loader.load();
                      Scene scene = new Scene(view);
                      HomeController controller = loader.getController();
