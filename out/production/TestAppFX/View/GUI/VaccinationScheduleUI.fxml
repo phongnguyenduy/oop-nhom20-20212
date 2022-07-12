@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="586.0" prefWidth="1035.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.VaccinationScheduleUIController">
+   <children>
+      <TableView fx:id="tableView" layoutX="42.0" layoutY="249.0" prefHeight="262.0" prefWidth="936.0">
+         <columns>
+            <TableColumn fx:id="idColumn" prefWidth="120.0" text="ID" />
+            <TableColumn fx:id="nameColumn" minWidth="7.20001220703125" prefWidth="253.99996948242188" text="Chủ đề tiêm chủng" />
+            <TableColumn fx:id="addressColumn" prefWidth="212.79998779296875" text="Địa chỉ tiêm chủng " />
+            <TableColumn fx:id="timeColumn" minWidth="0.0" prefWidth="161.59998321533203" text="Thời gian " />
+            <TableColumn fx:id="amountColumn" minWidth="0.0" prefWidth="152.66668701171875" text="Số mũi tiêm " />
+         </columns>
+      </TableView>
+      <Button fx:id="searchButton" layoutX="925.0" layoutY="181.0" mnemonicParsing="false" onAction="#setSearchButton" text="Tìm" />
+      <Label layoutX="406.0" layoutY="30.0" text="LỊCH TIÊM CHỦNG" textFill="#0026ff">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+      </Label>
+      <TextField fx:id="searchText" layoutX="879.0" layoutY="93.0" prefHeight="26.0" prefWidth="128.0" promptText="Từ khóa cần tìm " />
+      <CheckBox fx:id="dateCheck" layoutX="881.0" layoutY="129.0" mnemonicParsing="false" text="Là ngày tháng ?" textFill="#0026ff">
+         <font>
+            <Font size="14.0" />
+         </font></CheckBox>
+      <CheckBox fx:id="numberCheck" layoutX="882.0" layoutY="151.0" mnemonicParsing="false" text="Là số?" textFill="#0026ff">
+         <font>
+            <Font size="14.0" />
+         </font></CheckBox>
+      <Label layoutX="42.0" layoutY="532.0" prefHeight="25.0" prefWidth="175.0" text="Tính tổng số vắc xin trong đợt : " textFill="#0026ff" />
+      <Button layoutX="638.0" layoutY="532.0" mnemonicParsing="false" onAction="#showSum" text="Thống kê" />
+      <Label layoutX="734.0" layoutY="536.0" text="Kết quả:" textFill="#0026ff" />
+      <Text fx:id="sumText" layoutX="820.0" layoutY="549.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="140.80340576171875" />
+      <GridPane hgap="10.0" layoutX="75.0" layoutY="76.0" prefHeight="98.0" prefWidth="693.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="300.0" spacing="10.0">
+               <children>
+                  <Label alignment="CENTER_RIGHT" text="Địa chỉ tiêm chủng " textAlignment="RIGHT" textFill="#0026ff" wrapText="true">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="addressText" prefHeight="25.0" prefWidth="159.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="300.0" spacing="10.0" GridPane.rowIndex="1">
+               <children>
+                  <Label alignment="CENTER_RIGHT" text="Chủ đề tiêm chủng" textAlignment="RIGHT" textFill="#0026ff" wrapText="true">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="nameText">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="250.0" spacing="10.0" GridPane.columnIndex="1">
+               <children>
+                  <Label alignment="CENTER_RIGHT" text="Số mũi tiêm " textAlignment="RIGHT" textFill="#0026ff" wrapText="true">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="amountText" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="250.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                  <Label text="Thời gian " textAlignment="RIGHT" textFill="#0026ff">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <DatePicker fx:id="timePicker" prefHeight="25.0" prefWidth="150.0" promptText="Chọn ngày" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="2">
+               <children>
+                  <Label alignment="CENTER_RIGHT" text="ID" textAlignment="RIGHT">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="idText" />
+               </children>
+            </HBox>
+         </children>
+      </GridPane>
+      <HBox alignment="CENTER" layoutX="94.0" layoutY="181.0" prefHeight="40.0" prefWidth="569.0" spacing="50.0">
+         <children>
+            <Button fx:id="addButton" mnemonicParsing="false" onAction="#setAddButton" text="Thêm" />
+            <Button fx:id="updateButton" mnemonicParsing="false" onAction="#Update" text="Sửa" />
+            <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#setDeleteButton" text="Xóa" />
+            <Button fx:id="showButton" mnemonicParsing="false" onAction="#setShowButton" text="Hiển thị tất cả" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_RIGHT" layoutX="217.0" layoutY="524.0" prefHeight="40.0" prefWidth="200.0" spacing="10.0">
+         <children>
+            <Label text="Từ " textFill="#0026ff" />
+            <DatePicker fx:id="dateStart" prefHeight="25.0" prefWidth="150.0" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_RIGHT" layoutX="428.0" layoutY="524.0" prefHeight="40.0" prefWidth="200.0">
+         <children>
+            <Label text="Đến " textFill="#0026ff" />
+            <DatePicker fx:id="dateFinish" prefHeight="25.0" prefWidth="150.0" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
