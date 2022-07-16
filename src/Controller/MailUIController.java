@@ -36,15 +36,19 @@ public class MailUIController implements Initializable {
 
     @FXML
     private void setSendButton(ActionEvent event) {
-        boolean isSuccess = false;
-        String username = "minhctthvn2@gmail.com";
-        String password = "KINGMAN1";
+        boolean isSuccess = true;
+        //Mail của Phong, password là app password
+        String username = "phongnguyenduy100@gmail.com";
+        String password = "uqefwydpogvcowoa";
         Properties props = new Properties();
-        props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.host", "smtp.gmail.com");
-        props.put("mail.smtp.socketFactory.port", "465");
-        props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
-        props.put("mail.smtp.port", "465");
+        props.put("mail.smtp.starttls.enable","true");
+        props.put("mail.smtp.starttls.required","true");
+        props.put("mail.smtp.ssl.protocols","TLSv1.2");
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.port", "587");
+        //props.put("mail.smtp.socketFactory.port", "465");
+        //props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
         Session session = Session.getInstance(props,
                 new javax.mail.Authenticator() {
                     protected PasswordAuthentication getPasswordAuthentication() {
@@ -67,12 +71,12 @@ public class MailUIController implements Initializable {
             Transport.send(message);
         } catch (MessagingException e) {
             e.printStackTrace();
-            isSuccess = true;
+            isSuccess = false;
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("ERROR!!!//nTRY AGAIN");
             alert.show();
         }
-        if (!isSuccess) {
+        if (isSuccess) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("Send Email Successful");
             alert.show();
@@ -81,13 +85,22 @@ public class MailUIController implements Initializable {
 
     @FXML
     private void setAddCCButton(ActionEvent event) {
-        CCText.setText(EmailAddress.getText());
+        String cc = CCText.getText();
+        CCText.setText(cc + "," + EmailAddress.getText());
         EmailAddress.clear();
     }
 
     @FXML
     private void setAddBCCButton(ActionEvent event) {
-        BCCText.setText(EmailAddress.getText());
+        String bcc = BCCText.getText();
+        BCCText.setText(bcc + "," + EmailAddress.getText());
+        EmailAddress.clear();
+    }
+
+    @FXML
+    private void setAddToButton(ActionEvent event) {
+        String to = EmailToText.getText();
+        BCCText.setText(to + "," + EmailAddress.getText());
         EmailAddress.clear();
     }
 

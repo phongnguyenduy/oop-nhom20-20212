@@ -300,7 +300,7 @@ public class ChildrenUIController implements Initializable {
         loader.setLocation(getClass().getResource("/View/GUI/Chart.fxml"));
         Parent view = loader.load();
         Scene scene = new Scene(view);
-        DetailController controller = loader.getController();
+        ChartController controller = loader.getController();
         InforChildren inforChildren = tableView.getSelectionModel().getSelectedItem();
         controller.setInfo(inforChildren);
         stage.setScene(scene);

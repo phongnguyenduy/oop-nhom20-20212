@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="anchorPane" prefHeight="670.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/15.0.1"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.DetailController">
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ChartController">
     <children>
         <TableView fx:id="growthNumeralTable" layoutX="1013.0" layoutY="134.0" prefHeight="335.0" prefWidth="254.0">
             <columns>

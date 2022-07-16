@@ -33,7 +33,7 @@ import java.util.ResourceBundle;
 
 import Model.Connect.Connect;
 
-public class DetailController implements Initializable {
+public class ChartController implements Initializable {
     protected static final Connection conn = Connect.getConnection();
     protected static PreparedStatement ps;
     protected static ResultSet rs;

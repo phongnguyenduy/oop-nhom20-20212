@@ -14,94 +14,106 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/18"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MailUIController">
+<AnchorPane prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MailUIController">
     <children>
         <ImageView fitHeight="650.0" fitWidth="1100.0" preserveRatio="true">
             <image>
-                <Image url="@../newImage/AppBackgrond.jpg"/>
+                <Image url="@../newImage/AppBackgrond.jpg" />
             </image>
             <effect>
-                <ColorAdjust brightness="0.55"/>
+                <ColorAdjust brightness="0.55" />
             </effect>
         </ImageView>
-        <Text fill="#d219bc" layoutX="341.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0"
-              text="TẠO SỰ KIỆN VÀ GỬI EMAIL" textAlignment="CENTER" wrappingWidth="407.2852096557617">
-            <font>
-                <Font name="System Bold" size="28.0"/>
-            </font>
-        </Text>
-        <ListView fx:id="listView" layoutX="655.0" layoutY="115.0" prefHeight="81.0" prefWidth="304.0"/>
-        <Button layoutX="702.0" layoutY="269.0" mnemonicParsing="false" onAction="#setAddCCButton" text="Add To CC">
-            <font>
-                <Font size="14.0"/>
-            </font>
-        </Button>
-        <Button layoutX="822.0" layoutY="270.0" mnemonicParsing="false" onAction="#setAddBCCButton" text="Add To BCC">
-            <font>
-                <Font size="14.0"/>
-            </font>
-        </Button>
-        <Button fx:id="SendButton" layoutX="484.0" layoutY="124.0" mnemonicParsing="false" onAction="#setSendButton"
-                prefHeight="54.0" prefWidth="116.0" text="Tạo và gửi email" textAlignment="CENTER" wrapText="true">
-            <font>
-                <Font size="14.0"/>
-            </font>
-        </Button>
-        <TextField fx:id="EmailAddress" layoutX="655.0" layoutY="214.0" prefHeight="26.0" prefWidth="304.0"/>
         <VBox layoutX="76.0" layoutY="112.0" prefHeight="479.0" prefWidth="368.0" spacing="10.0">
             <children>
                 <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="200.0" spacing="10.0">
                     <children>
-                        <Label text="To" textFill="#d219bc">
+                        <Label text="Đến" textFill="#d219bc">
                             <font>
-                                <Font size="14.0"/>
+                                <Font size="14.0" />
                             </font>
                         </Label>
-                        <TextField fx:id="EmailToText" prefWidth="290.0"/>
+                        <TextField fx:id="EmailToText" prefWidth="290.0" />
                     </children>
                 </HBox>
                 <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="200.0" spacing="10.0">
                     <children>
                         <Label text="CC" textFill="#d219bc">
                             <font>
-                                <Font size="14.0"/>
+                                <Font size="14.0" />
                             </font>
                         </Label>
-                        <TextField fx:id="CCText" prefWidth="290.0"/>
+                        <TextField fx:id="CCText" prefWidth="290.0" />
                     </children>
                 </HBox>
                 <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="200.0" spacing="10.0">
                     <children>
                         <Label text="BCC" textFill="#d219bc">
                             <font>
-                                <Font size="14.0"/>
+                                <Font size="14.0" />
                             </font>
                         </Label>
-                        <TextField fx:id="BCCText" prefWidth="290.0"/>
+                        <TextField fx:id="BCCText" prefWidth="290.0" />
                     </children>
                 </HBox>
                 <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="200.0" spacing="10.0">
                     <children>
-                        <Label text="Subject" textFill="#d219bc">
+                        <Label text="Chủ đề" textFill="#d219bc">
                             <font>
-                                <Font size="14.0"/>
+                                <Font size="14.0" />
                             </font>
                         </Label>
-                        <TextField fx:id="SubjectText" prefWidth="290.0"/>
+                        <TextField fx:id="SubjectText" prefWidth="290.0" />
                     </children>
                 </HBox>
                 <VBox prefHeight="281.0" prefWidth="339.0" spacing="10.0">
                     <children>
-                        <Label text="Content" textFill="#d219bc">
+                        <Label text="Nội dung email" textFill="#d219bc">
                             <font>
-                                <Font size="14.0"/>
+                                <Font size="14.0" />
                             </font>
                         </Label>
-                        <TextArea fx:id="ContentText" prefHeight="246.0" prefWidth="339.0"/>
+                        <TextArea fx:id="ContentText" prefHeight="246.0" prefWidth="339.0" />
                     </children>
                 </VBox>
             </children>
         </VBox>
+        <Button fx:id="SendButton" layoutX="484.0" layoutY="124.0" mnemonicParsing="false" onAction="#setSendButton" prefHeight="54.0" prefWidth="116.0" text="Tạo và gửi email" textAlignment="CENTER" wrapText="true">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+        <Text fill="#d219bc" layoutX="341.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TẠO SỰ KIỆN VÀ GỬI EMAIL" textAlignment="CENTER" wrappingWidth="407.2852096557617">
+            <font>
+                <Font name="System Bold" size="28.0" />
+            </font>
+        </Text>
+      <Label layoutX="655.0" layoutY="114.0" text="Chọn để thêm vào danh sách email" textFill="#d219bc">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+        <ListView fx:id="listView" layoutX="655.0" layoutY="138.0" prefHeight="81.0" prefWidth="304.0" />
+      <Label layoutX="655.0" layoutY="231.0" text="Danh sách email" textFill="#d219bc">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+        <TextField fx:id="EmailAddress" layoutX="655.0" layoutY="261.0" prefHeight="26.0" prefWidth="304.0" />
+      <Button layoutX="772.0" layoutY="325.0" mnemonicParsing="false" onAction="#setAddToButton" text="Thêm vào To">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+        <Button layoutX="771.0" layoutY="368.0" mnemonicParsing="false" onAction="#setAddCCButton" text="Thêm vào CC">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+        <Button layoutX="767.0" layoutY="410.0" mnemonicParsing="false" onAction="#setAddBCCButton" text="Thêm vào BCC">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
     </children>
 </AnchorPane>
