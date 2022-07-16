@@ -7,7 +7,8 @@ public class Human {
     protected String gender; //gioi tinh
     protected String birthday; //ngay sinh
 
-    public Human(){}
+    public Human() {
+    }
 
     public Human(String medicalIdentifier, String name, String citizenIdentification, String gender, String birthday) {
         this.medicalIdentifier = medicalIdentifier;
@@ -28,22 +29,45 @@ public class Human {
         this.birthday = birthday;
     }
 
-    public String getMedicalIdentifier() {return medicalIdentifier;}
-    public void setMedicalIdentifier(String medicalIdentifier) {this.medicalIdentifier = medicalIdentifier;}
+    public String getMedicalIdentifier() {
+        return medicalIdentifier;
+    }
 
-    public String getName() {return name;}
-    public void setName(String name) {this.name = name;}
+    public void setMedicalIdentifier(String medicalIdentifier) {
+        this.medicalIdentifier = medicalIdentifier;
+    }
 
-    public String getCitizenIdentification() {return citizenIdentification;}
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getCitizenIdentification() {
+        return citizenIdentification;
+    }
+
     public void setCitizenIdentification(String citizenIdentification) {
         this.citizenIdentification = citizenIdentification;
     }
 
-    public String getGender() {return gender;}
-    public void setGender(String gender) {this.gender = gender;}
+    public String getGender() {
+        return gender;
+    }
 
-    public String getBirthday() {return birthday;}
-    public void setBirthday(String birthday) {this.birthday = birthday;}
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
+    }
 
 }
 

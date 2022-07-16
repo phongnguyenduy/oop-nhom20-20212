@@ -8,7 +8,7 @@ public class InforChildren extends Human {
     }
 
     public InforChildren(String medicalIdentifier, String name, String birthday, String gender, String farName, String morName) {
-        super(medicalIdentifier,name,gender,birthday);
+        super(medicalIdentifier, name, gender, birthday);
         this.farName = farName;
         this.morName = morName;
     }

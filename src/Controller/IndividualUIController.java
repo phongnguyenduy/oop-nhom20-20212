@@ -62,25 +62,26 @@ public class IndividualUIController implements Initializable {
     private TableColumn<Person, String> vaccinationtatusColumn;
 
     ObservableList<Person> People;
+
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle){
+    public void initialize(URL url, ResourceBundle resourceBundle) {
 
         getData();
         tableView.setOnMouseClicked(event1 -> {
-            Person person =tableView.getSelectionModel().getSelectedItem();
+            Person person = tableView.getSelectionModel().getSelectedItem();
             medicalIdentifierText.setText(person.getMedicalIdentifier());
             nameText.setText(person.getName());
             citizenIdentificationText.setText(person.getCitizenIdentification());
             genderText.setText(person.getGender());
-            String time= person.getBirthday();
-            birthdayPicker.setValue(LocalDate.of(Integer.parseInt(time.substring(0,4)),
+            String time = person.getBirthday();
+            birthdayPicker.setValue(LocalDate.of(Integer.parseInt(time.substring(0, 4)),
                     Integer.parseInt(time.substring(5, 7)),
-                    Integer.parseInt(time.substring(8,10))));
+                    Integer.parseInt(time.substring(8, 10))));
             addressText.setText(person.getAddress());
             numberPhoneText.setText(person.getNumberPhone());
             emailText.setText(person.getEmail());
             vaccinationtatusText.setText(person.getVaccinationtatus());
-            if(tableView.getSelectionModel().isEmpty()) {
+            if (tableView.getSelectionModel().isEmpty()) {
                 clear();
             }
 
@@ -88,22 +89,22 @@ public class IndividualUIController implements Initializable {
     }
 
     //Tải dữ liệu lên bảng tableView
-    public void getData(){
+    public void getData() {
         People = FXCollections.observableArrayList(new PersonDao().getPeople());
-        medicalIdentifierColumn.setCellValueFactory(new PropertyValueFactory<Person,String>("medicalIdentifier"));
-        nameColum.setCellValueFactory(new PropertyValueFactory<Person,String>("name"));
-        citizenIdentificationColumn.setCellValueFactory(new PropertyValueFactory<Person,String>("citizenIdentification"));
-        genderColumn.setCellValueFactory(new PropertyValueFactory<Person,String>("gender"));
-        birthdayColumn.setCellValueFactory(new PropertyValueFactory<Person,String>("birthday"));
-        addressColumn.setCellValueFactory(new PropertyValueFactory<Person,String>("address"));
-        numberPhoneColumn.setCellValueFactory(new PropertyValueFactory<Person,String>("numberPhone"));
-        emailColumn.setCellValueFactory(new PropertyValueFactory<Person,String>("email"));
-        vaccinationtatusColumn.setCellValueFactory((new PropertyValueFactory<Person,String>("vaccinationtatus")));
+        medicalIdentifierColumn.setCellValueFactory(new PropertyValueFactory<Person, String>("medicalIdentifier"));
+        nameColum.setCellValueFactory(new PropertyValueFactory<Person, String>("name"));
+        citizenIdentificationColumn.setCellValueFactory(new PropertyValueFactory<Person, String>("citizenIdentification"));
+        genderColumn.setCellValueFactory(new PropertyValueFactory<Person, String>("gender"));
+        birthdayColumn.setCellValueFactory(new PropertyValueFactory<Person, String>("birthday"));
+        addressColumn.setCellValueFactory(new PropertyValueFactory<Person, String>("address"));
+        numberPhoneColumn.setCellValueFactory(new PropertyValueFactory<Person, String>("numberPhone"));
+        emailColumn.setCellValueFactory(new PropertyValueFactory<Person, String>("email"));
+        vaccinationtatusColumn.setCellValueFactory((new PropertyValueFactory<Person, String>("vaccinationtatus")));
         tableView.setItems(People);
     }
 
     //Xóa các textField
-    public void clear(){
+    public void clear() {
         nameText.clear();
         medicalIdentifierText.clear();
         citizenIdentificationText.clear();
@@ -116,20 +117,20 @@ public class IndividualUIController implements Initializable {
     }
 
     //Hiển thị lại toàn bộ dữ liệu
-    public void handleShowAll(MouseEvent event){
+    public void handleShowAll(MouseEvent event) {
         tableView.setItems(FXCollections.observableArrayList(new PersonDao().getPeople()));
         clear();
     }
 
     //Thêm
-    public void handleAddPeople(MouseEvent event){
+    public void handleAddPeople(MouseEvent event) {
 
-        if (medicalIdentifierText.getText().isEmpty() || nameText.getText().isEmpty() || birthdayPicker.getValue() == null ||genderText.getText().isEmpty() || vaccinationtatusText.getText().isEmpty()){
-            Alert alert=new Alert(Alert.AlertType.WARNING);
+        if (medicalIdentifierText.getText().isEmpty() || nameText.getText().isEmpty() || birthdayPicker.getValue() == null || genderText.getText().isEmpty() || vaccinationtatusText.getText().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setContentText("Nhập thiếu thông tin, vui lòng bổ sung!!!\nHọ tên, mã định danh y tế, giới tính, \nngày sinh, tình trạng tiêm chủng \nkhông được để trống!!!");
             alert.show();
-        }else{
-            String tmp= String.valueOf(birthdayPicker.getValue());
+        } else {
+            String tmp = String.valueOf(birthdayPicker.getValue());
             Person person = new Person(
                     medicalIdentifierText.getText(),
                     nameText.getText(),
@@ -150,7 +151,7 @@ public class IndividualUIController implements Initializable {
     }
 
     //Xóa
-    public void handleDeletePeople(MouseEvent event){
+    public void handleDeletePeople(MouseEvent event) {
 
         String medicalId = medicalIdentifierText.getText();
         new PersonDao().deletePerson(medicalId);
@@ -160,8 +161,8 @@ public class IndividualUIController implements Initializable {
     }
 
     //Sửa
-    public void handleUpdatePeople(MouseEvent event){
-        String tmp1= String.valueOf(birthdayPicker.getValue());
+    public void handleUpdatePeople(MouseEvent event) {
+        String tmp1 = String.valueOf(birthdayPicker.getValue());
         Person person = new Person(
                 medicalIdentifierText.getText(),
                 nameText.getText(),
@@ -180,10 +181,10 @@ public class IndividualUIController implements Initializable {
     }
 
     //Tìm kiếm
-    public void handleSearchPeople(MouseEvent event){
+    public void handleSearchPeople(MouseEvent event) {
         String search = searchText.getText();
         boolean checkIsTime = dateCheck.isSelected();
-        tableView.setItems(FXCollections.observableArrayList(new PersonDao().getPeople(search,checkIsTime)));
+        tableView.setItems(FXCollections.observableArrayList(new PersonDao().getPeople(search, checkIsTime)));
         clear();
     }
 }

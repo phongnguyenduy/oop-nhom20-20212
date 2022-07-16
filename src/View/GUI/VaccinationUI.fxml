@@ -19,135 +19,156 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.VaccinationUIController">
-   <children>
-      <ImageView fitHeight="650.0" fitWidth="1100.0">
-         <image>
-            <Image url="@../newImage/AppBackgrond.jpg" />
-         </image>
-         <effect>
-            <ColorAdjust brightness="0.55" />
-         </effect>
-      </ImageView>
-      <FlowPane alignment="CENTER" hgap="10.0" layoutX="623.0" layoutY="167.0" prefHeight="40.0" prefWidth="246.0" vgap="10.0">
-         <children>
-            <Button fx:id="addButton" mnemonicParsing="false" onMouseClicked="#handleAdd" text="Thêm" />
-            <Button fx:id="updateButton" mnemonicParsing="false" onMouseClicked="#handleUpdate" text="Sửa" />
-            <Button fx:id="deleteButton" mnemonicParsing="false" onMouseClicked="#hanldeDelete" text="Xóa" />
-            <Button fx:id="showAllButton" mnemonicParsing="false" onMouseClicked="#handleShowAll" text="Hiển thị tất cả" />
-         </children>
-      </FlowPane>
-      <TableView fx:id="tableView" layoutX="45.0" layoutY="235.0" prefHeight="391.0" prefWidth="1015.0">
-         <columnResizePolicy>
-            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-         </columnResizePolicy>
-         <columns>
-            <TableColumn fx:id="medicalIdentifierColumn" prefWidth="75.0" text="Mã định danh y tế" />
-            <TableColumn fx:id="idColumn" prefWidth="75.0" text="Số hiệu nhận biết" />
-            <TableColumn fx:id="typeColumn" prefWidth="75.0" text="Loại Vaccine" />
-            <TableColumn fx:id="dateColumn" prefWidth="75.0" text="Ngày tiêm" />
-            <TableColumn fx:id="lotNumberColumn" prefWidth="75.0" text="Số hiệu lô Vaccine" />
-            <TableColumn fx:id="postInjectionColumn" prefWidth="75.0" text="Tình trạng sau tiêm" />
-            <TableColumn fx:id="numberInjectionsColumn" prefWidth="75.0" text="Số mũi tiêm" />
-         </columns>
-      </TableView>
-      <Button fx:id="showButton" layoutX="952.0" layoutY="201.0" mnemonicParsing="false" onMouseClicked="#handleShow" text="Tìm kiếm" />
-      <TextField fx:id="searchText" layoutX="928.0" layoutY="108.0" prefHeight="26.0" prefWidth="140.0" promptText="Từ khóa cần tìm" />
-      <CheckBox fx:id="dateCheck" layoutX="931.0" layoutY="145.0" mnemonicParsing="false" text="Là ngày tháng ?" textFill="#d219bc" />
-      <CheckBox fx:id="numberCheck" layoutX="931.0" layoutY="173.0" mnemonicParsing="false" text="Là số?" textFill="#d219bc" />
-      <Text fill="#d219bc" layoutX="351.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="THÔNG TIN TIÊM CHỦNG" textAlignment="CENTER" wrappingWidth="407.2852096557617">
-         <font>
-            <Font name="System Bold" size="28.0" />
-         </font>
-      </Text>
-      <Label alignment="CENTER" layoutX="944.0" layoutY="76.0" prefHeight="26.0" prefWidth="78.0" text="Tìm kiếm" textFill="#d219bc">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <GridPane hgap="10.0" layoutX="48.0" layoutY="81.0" prefHeight="137.0" prefWidth="698.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="200.0" spacing="10.0">
-               <children>
-                  <Label alignment="CENTER_RIGHT" text="Số hiệu nhận biết" textAlignment="RIGHT" textFill="#d219bc" wrapText="true">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="idText" prefHeight="26.0" prefWidth="139.0" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="200.0" spacing="10.0" GridPane.rowIndex="1">
-               <children>
-                  <Label alignment="CENTER_RIGHT" text="Ngày tiêm" textAlignment="RIGHT" textFill="#d219bc" wrapText="true">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <DatePicker fx:id="datePicker" prefHeight="25.0" prefWidth="100.0" promptText="Chọn ngày" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1">
-               <children>
-                  <Label alignment="CENTER_RIGHT" text="Loại Vaccine" textAlignment="RIGHT" textFill="#d219bc" wrapText="true">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="typeText" prefHeight="26.0" prefWidth="100.0" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-               <children>
-                  <Label alignment="CENTER_RIGHT" text="Tình trạng sau tiêm" textAlignment="RIGHT" textFill="#d219bc" wrapText="true">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="postInjectionText" prefHeight="26.0" prefWidth="146.0" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="2">
-               <children>
-                  <Label alignment="CENTER_RIGHT" text="Số lô Vaccine" textAlignment="RIGHT" textFill="#d219bc" wrapText="true">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="lotNumberText" prefHeight="26.0" prefWidth="135.0" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
-               <children>
-                  <Label alignment="CENTER_RIGHT" text="Số mũi tiêm" textAlignment="RIGHT" textFill="#d219bc" wrapText="true">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="numberInjectionText" prefHeight="26.0" prefWidth="130.0" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="3">
-               <children>
-                  <Label alignment="CENTER_RIGHT" text="Mã định danh y tế" textAlignment="RIGHT" textFill="#d219bc" wrapText="true">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="medicalIdentifierText" prefHeight="26.0" prefWidth="141.0" />
-               </children>
-            </HBox>
-         </children>
-      </GridPane>
-   </children>
+<AnchorPane prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/18"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.VaccinationUIController">
+    <children>
+        <ImageView fitHeight="650.0" fitWidth="1100.0">
+            <image>
+                <Image url="@../newImage/AppBackgrond.jpg"/>
+            </image>
+            <effect>
+                <ColorAdjust brightness="0.55"/>
+            </effect>
+        </ImageView>
+        <FlowPane alignment="CENTER" hgap="10.0" layoutX="623.0" layoutY="167.0" prefHeight="40.0" prefWidth="246.0"
+                  vgap="10.0">
+            <children>
+                <Button fx:id="addButton" mnemonicParsing="false" onMouseClicked="#handleAdd" text="Thêm"/>
+                <Button fx:id="updateButton" mnemonicParsing="false" onMouseClicked="#handleUpdate" text="Sửa"/>
+                <Button fx:id="deleteButton" mnemonicParsing="false" onMouseClicked="#hanldeDelete" text="Xóa"/>
+                <Button fx:id="showAllButton" mnemonicParsing="false" onMouseClicked="#handleShowAll"
+                        text="Hiển thị tất cả"/>
+            </children>
+        </FlowPane>
+        <TableView fx:id="tableView" layoutX="45.0" layoutY="235.0" prefHeight="391.0" prefWidth="1015.0">
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+            </columnResizePolicy>
+            <columns>
+                <TableColumn fx:id="medicalIdentifierColumn" prefWidth="75.0" text="Mã định danh y tế"/>
+                <TableColumn fx:id="idColumn" prefWidth="75.0" text="Số hiệu nhận biết"/>
+                <TableColumn fx:id="typeColumn" prefWidth="75.0" text="Loại Vaccine"/>
+                <TableColumn fx:id="dateColumn" prefWidth="75.0" text="Ngày tiêm"/>
+                <TableColumn fx:id="lotNumberColumn" prefWidth="75.0" text="Số hiệu lô Vaccine"/>
+                <TableColumn fx:id="postInjectionColumn" prefWidth="75.0" text="Tình trạng sau tiêm"/>
+                <TableColumn fx:id="numberInjectionsColumn" prefWidth="75.0" text="Số mũi tiêm"/>
+            </columns>
+        </TableView>
+        <Button fx:id="showButton" layoutX="952.0" layoutY="201.0" mnemonicParsing="false" onMouseClicked="#handleShow"
+                text="Tìm kiếm"/>
+        <TextField fx:id="searchText" layoutX="928.0" layoutY="108.0" prefHeight="26.0" prefWidth="140.0"
+                   promptText="Từ khóa cần tìm"/>
+        <CheckBox fx:id="dateCheck" layoutX="931.0" layoutY="145.0" mnemonicParsing="false" text="Là ngày tháng ?"
+                  textFill="#d219bc"/>
+        <CheckBox fx:id="numberCheck" layoutX="931.0" layoutY="173.0" mnemonicParsing="false" text="Là số?"
+                  textFill="#d219bc"/>
+        <Text fill="#d219bc" layoutX="351.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              text="THÔNG TIN TIÊM CHỦNG" textAlignment="CENTER" wrappingWidth="407.2852096557617">
+            <font>
+                <Font name="System Bold" size="28.0"/>
+            </font>
+        </Text>
+        <Label alignment="CENTER" layoutX="944.0" layoutY="76.0" prefHeight="26.0" prefWidth="78.0" text="Tìm kiếm"
+               textFill="#d219bc">
+            <font>
+                <Font size="14.0"/>
+            </font>
+        </Label>
+        <GridPane hgap="10.0" layoutX="48.0" layoutY="81.0" prefHeight="137.0" prefWidth="698.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            </rowConstraints>
+            <children>
+                <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="200.0" spacing="10.0">
+                    <children>
+                        <Label alignment="CENTER_RIGHT" text="Số hiệu nhận biết" textAlignment="RIGHT"
+                               textFill="#d219bc" wrapText="true">
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
+                        </Label>
+                        <TextField fx:id="idText" prefHeight="26.0" prefWidth="139.0"/>
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="200.0" spacing="10.0" GridPane.rowIndex="1">
+                    <children>
+                        <Label alignment="CENTER_RIGHT" text="Ngày tiêm" textAlignment="RIGHT" textFill="#d219bc"
+                               wrapText="true">
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
+                        </Label>
+                        <DatePicker fx:id="datePicker" prefHeight="25.0" prefWidth="100.0" promptText="Chọn ngày"/>
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="200.0" spacing="10.0"
+                      GridPane.columnIndex="1">
+                    <children>
+                        <Label alignment="CENTER_RIGHT" text="Loại Vaccine" textAlignment="RIGHT" textFill="#d219bc"
+                               wrapText="true">
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
+                        </Label>
+                        <TextField fx:id="typeText" prefHeight="26.0" prefWidth="100.0"/>
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="200.0" spacing="10.0"
+                      GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <children>
+                        <Label alignment="CENTER_RIGHT" text="Tình trạng sau tiêm" textAlignment="RIGHT"
+                               textFill="#d219bc" wrapText="true">
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
+                        </Label>
+                        <TextField fx:id="postInjectionText" prefHeight="26.0" prefWidth="146.0"/>
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="200.0" spacing="10.0"
+                      GridPane.columnIndex="2">
+                    <children>
+                        <Label alignment="CENTER_RIGHT" text="Số lô Vaccine" textAlignment="RIGHT" textFill="#d219bc"
+                               wrapText="true">
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
+                        </Label>
+                        <TextField fx:id="lotNumberText" prefHeight="26.0" prefWidth="135.0"/>
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="200.0" spacing="10.0"
+                      GridPane.columnIndex="2" GridPane.rowIndex="1">
+                    <children>
+                        <Label alignment="CENTER_RIGHT" text="Số mũi tiêm" textAlignment="RIGHT" textFill="#d219bc"
+                               wrapText="true">
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
+                        </Label>
+                        <TextField fx:id="numberInjectionText" prefHeight="26.0" prefWidth="130.0"/>
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="200.0" spacing="10.0"
+                      GridPane.columnIndex="3">
+                    <children>
+                        <Label alignment="CENTER_RIGHT" text="Mã định danh y tế" textAlignment="RIGHT"
+                               textFill="#d219bc" wrapText="true">
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
+                        </Label>
+                        <TextField fx:id="medicalIdentifierText" prefHeight="26.0" prefWidth="141.0"/>
+                    </children>
+                </HBox>
+            </children>
+        </GridPane>
+    </children>
 </AnchorPane>

@@ -1,6 +1,6 @@
 package Model.DataDescriptor;
 
-public class Person extends Human{
+public class Person extends Human {
 
     private String address;
     //dia chi
@@ -11,7 +11,8 @@ public class Person extends Human{
     private String vaccinationtatus;
     //tinh trang tiem chung ( tiem du loai vaccine hay chua?)
 
-    public Person(){}
+    public Person() {
+    }
 
 
     public Person(String medicalIdentifier, String name,
@@ -19,7 +20,7 @@ public class Person extends Human{
                   String birthday, String address, String numberPhone,
                   String email, String vaccinationtatus) {
 
-        super(medicalIdentifier,name,citizenIdentification,gender,birthday);
+        super(medicalIdentifier, name, citizenIdentification, gender, birthday);
         this.address = address;
         this.numberPhone = numberPhone;
         this.email = email;
