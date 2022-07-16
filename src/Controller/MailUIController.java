@@ -17,11 +17,11 @@ import java.util.ResourceBundle;
 
 public class MailUIController implements Initializable {
     @FXML
-    private  TextArea ContentText;
+    private TextArea ContentText;
     @FXML
-    public   TextField EmailToText;
+    public TextField EmailToText;
     @FXML
-    private  TextField SubjectText;
+    private TextField SubjectText;
     @FXML
     private Button SendButton;
     @FXML
@@ -33,13 +33,10 @@ public class MailUIController implements Initializable {
     ObservableList<String> emaillist;
     @FXML
     private TextField EmailAddress;
+
     @FXML
-    private ProgressBar progressBar;
-    @FXML
-    private Label label;
-    @FXML
-    private void setSendButton(ActionEvent event){
-        boolean isSuccess=false;
+    private void setSendButton(ActionEvent event) {
+        boolean isSuccess = false;
         String username = "minhctthvn2@gmail.com";
         String password = "KINGMAN1";
         Properties props = new Properties();
@@ -70,39 +67,41 @@ public class MailUIController implements Initializable {
             Transport.send(message);
         } catch (MessagingException e) {
             e.printStackTrace();
-            isSuccess=true;
-            Alert alert=new Alert(Alert.AlertType.ERROR);
+            isSuccess = true;
+            Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("ERROR!!!//nTRY AGAIN");
             alert.show();
         }
-        if (!isSuccess){
-            Alert alert=new Alert(Alert.AlertType.INFORMATION);
+        if (!isSuccess) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("Send Email Successful");
             alert.show();
         }
     }
+
     @FXML
-    private void setAddCCButton(ActionEvent event){
+    private void setAddCCButton(ActionEvent event) {
         CCText.setText(EmailAddress.getText());
         EmailAddress.clear();
     }
+
     @FXML
-    private void setAddBCCButton(ActionEvent event){
+    private void setAddBCCButton(ActionEvent event) {
         BCCText.setText(EmailAddress.getText());
         EmailAddress.clear();
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        emaillist= FXCollections.observableList(new UpdateHome().getAddressEmail());
+        emaillist = FXCollections.observableList(new UpdateHome().getAddressEmail());
         listView.setItems(emaillist);
         listView.setOnMouseClicked(event -> {
-            String s2=listView.getSelectionModel().getSelectedItem();
-            if(EmailAddress.getText()==""){
+            String s2 = listView.getSelectionModel().getSelectedItem();
+            if (EmailAddress.getText() == "") {
                 EmailAddress.setText(s2);
-            }else{
-                String s3=EmailAddress.getText();
-                EmailAddress.setText(s3+","+s2);
+            } else {
+                String s3 = EmailAddress.getText();
+                EmailAddress.setText(s3 + "," + s2);
             }
         });
     }

@@ -15,96 +15,109 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MotherUIController">
-   <children>
-      <ImageView fitHeight="650.0" fitWidth="1100.0" preserveRatio="true">
-         <image>
-            <Image url="@../newImage/AppBackgrond.jpg" />
-         </image>
-         <effect>
-            <ColorAdjust brightness="0.55" />
-         </effect>
-      </ImageView>
-      <TableView fx:id="tableView" layoutX="40.0" layoutY="97.0" prefHeight="514.0" prefWidth="700.0">
-         <columns>
-            <TableColumn fx:id="medicalIdentifierColumn" prefWidth="177.66665649414062" text="Mã định danh y tế" />
-            <TableColumn fx:id="weightColumn" prefWidth="120.66665649414062" text="Cân nặng" />
-            <TableColumn fx:id="dateColumn" minWidth="8.66668701171875" prefWidth="181.66668701171875" text="Lần thăm khám sắp tới" />
-            <TableColumn fx:id="nextDateColumn" minWidth="0.0" prefWidth="184.33331298828125" text="Lần khám gần nhất" />
-         </columns>
-      </TableView>
-      <Label layoutX="328.0" layoutY="31.0" prefHeight="46.0" prefWidth="426.0" text="THÔNG TIN BÀ MẸ MANG THAI" textFill="#d219bc">
-         <font>
-            <Font name="System Bold" size="28.0" />
-         </font>
-      </Label>
-      <TextField fx:id="searchText" layoutX="866.0" layoutY="107.0" promptText="Tìm kiếm..." />
-      <Button fx:id="showButton" layoutX="1027.0" layoutY="123.0" mnemonicParsing="false" onMouseClicked="#handleShow" prefHeight="25.0" prefWidth="59.0" text="Tìm" />
-      <CheckBox fx:id="dateCheck" layoutX="866.0" layoutY="148.0" mnemonicParsing="false" text="Là ngày tháng ?" textFill="#d219bc">
-         <font>
-            <Font size="14.0" />
-         </font></CheckBox>
-      <CheckBox fx:id="numberCheck" layoutX="781.0" layoutY="148.0" mnemonicParsing="false" text="Là số?" textFill="#d219bc">
-         <font>
-            <Font size="14.0" />
-         </font></CheckBox>
-      <VBox alignment="CENTER" layoutX="778.0" layoutY="229.0" prefHeight="368.0" prefWidth="159.0" spacing="20.0">
-         <children>
-            <Label text="Mã định danh y tế" textFill="#d219bc">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <TextField fx:id="medicalIdentifierText" prefHeight="26.0" prefWidth="110.0" />
-            <Label text="Cân nặng" textFill="#d219bc">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <TextField fx:id="weightText" prefHeight="26.0" prefWidth="110.0" />
-            <Label text="Lần sắp tới" textFill="#d219bc">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <DatePicker fx:id="datePicker" prefHeight="25.0" prefWidth="186.0" promptText="Chọn ngày" />
-            <Label text="Lần gần nhất" textFill="#d219bc">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <DatePicker fx:id="nextDatePicker" prefHeight="25.0" prefWidth="163.0" promptText="Chọn ngày" />
-         </children>
-      </VBox>
-      <VBox alignment="CENTER" layoutX="942.0" layoutY="320.0" prefHeight="173.0" prefWidth="144.0" spacing="30.0">
-         <children>
-            <Button fx:id="addButton" mnemonicParsing="false" onMouseClicked="#handleAdd" text="Thêm" textAlignment="CENTER">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
-            <Button fx:id="deleteButton" mnemonicParsing="false" onMouseClicked="#hanldeDelete" prefHeight="25.0" prefWidth="46.0" text="Xóa" textAlignment="CENTER">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
-            <Button fx:id="updateButton" mnemonicParsing="false" onMouseClicked="#handleUpdate" prefHeight="25.0" prefWidth="46.0" text="Sửa" textAlignment="CENTER">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
-            <Button fx:id="showAllButton" mnemonicParsing="false" onMouseClicked="#handleShowAll" text="Hiển thị tất cả" textAlignment="CENTER" wrapText="true">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
-         </children>
-      </VBox>
-      <Line endX="128.0" layoutX="928.0" layoutY="212.0" startX="-144.0" />
-      <Label layoutX="778.0" layoutY="112.0" text="Từ khóa" textFill="#d219bc">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-   </children>
+<AnchorPane prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/18"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MotherUIController">
+    <children>
+        <ImageView fitHeight="650.0" fitWidth="1100.0" preserveRatio="true">
+            <image>
+                <Image url="@../newImage/AppBackgrond.jpg"/>
+            </image>
+            <effect>
+                <ColorAdjust brightness="0.55"/>
+            </effect>
+        </ImageView>
+        <TableView fx:id="tableView" layoutX="40.0" layoutY="97.0" prefHeight="514.0" prefWidth="700.0">
+            <columns>
+                <TableColumn fx:id="medicalIdentifierColumn" prefWidth="177.66665649414062" text="Mã định danh y tế"/>
+                <TableColumn fx:id="weightColumn" prefWidth="120.66665649414062" text="Cân nặng"/>
+                <TableColumn fx:id="dateColumn" minWidth="8.66668701171875" prefWidth="181.66668701171875"
+                             text="Lần thăm khám sắp tới"/>
+                <TableColumn fx:id="nextDateColumn" minWidth="0.0" prefWidth="184.33331298828125"
+                             text="Lần khám gần nhất"/>
+            </columns>
+        </TableView>
+        <Label layoutX="328.0" layoutY="31.0" prefHeight="46.0" prefWidth="426.0" text="THÔNG TIN BÀ MẸ MANG THAI"
+               textFill="#d219bc">
+            <font>
+                <Font name="System Bold" size="28.0"/>
+            </font>
+        </Label>
+        <TextField fx:id="searchText" layoutX="866.0" layoutY="107.0" promptText="Tìm kiếm..."/>
+        <Button fx:id="showButton" layoutX="1027.0" layoutY="123.0" mnemonicParsing="false" onMouseClicked="#handleShow"
+                prefHeight="25.0" prefWidth="59.0" text="Tìm"/>
+        <CheckBox fx:id="dateCheck" layoutX="866.0" layoutY="148.0" mnemonicParsing="false" text="Là ngày tháng ?"
+                  textFill="#d219bc">
+            <font>
+                <Font size="14.0"/>
+            </font>
+        </CheckBox>
+        <CheckBox fx:id="numberCheck" layoutX="781.0" layoutY="148.0" mnemonicParsing="false" text="Là số?"
+                  textFill="#d219bc">
+            <font>
+                <Font size="14.0"/>
+            </font>
+        </CheckBox>
+        <VBox alignment="CENTER" layoutX="778.0" layoutY="229.0" prefHeight="368.0" prefWidth="159.0" spacing="20.0">
+            <children>
+                <Label text="Mã định danh y tế" textFill="#d219bc">
+                    <font>
+                        <Font size="14.0"/>
+                    </font>
+                </Label>
+                <TextField fx:id="medicalIdentifierText" prefHeight="26.0" prefWidth="110.0"/>
+                <Label text="Cân nặng" textFill="#d219bc">
+                    <font>
+                        <Font size="14.0"/>
+                    </font>
+                </Label>
+                <TextField fx:id="weightText" prefHeight="26.0" prefWidth="110.0"/>
+                <Label text="Lần sắp tới" textFill="#d219bc">
+                    <font>
+                        <Font size="14.0"/>
+                    </font>
+                </Label>
+                <DatePicker fx:id="datePicker" prefHeight="25.0" prefWidth="186.0" promptText="Chọn ngày"/>
+                <Label text="Lần gần nhất" textFill="#d219bc">
+                    <font>
+                        <Font size="14.0"/>
+                    </font>
+                </Label>
+                <DatePicker fx:id="nextDatePicker" prefHeight="25.0" prefWidth="163.0" promptText="Chọn ngày"/>
+            </children>
+        </VBox>
+        <VBox alignment="CENTER" layoutX="942.0" layoutY="320.0" prefHeight="173.0" prefWidth="144.0" spacing="30.0">
+            <children>
+                <Button fx:id="addButton" mnemonicParsing="false" onMouseClicked="#handleAdd" text="Thêm"
+                        textAlignment="CENTER">
+                    <font>
+                        <Font size="14.0"/>
+                    </font>
+                </Button>
+                <Button fx:id="deleteButton" mnemonicParsing="false" onMouseClicked="#hanldeDelete" prefHeight="25.0"
+                        prefWidth="46.0" text="Xóa" textAlignment="CENTER">
+                    <font>
+                        <Font size="14.0"/>
+                    </font>
+                </Button>
+                <Button fx:id="updateButton" mnemonicParsing="false" onMouseClicked="#handleUpdate" prefHeight="25.0"
+                        prefWidth="46.0" text="Sửa" textAlignment="CENTER">
+                    <font>
+                        <Font size="14.0"/>
+                    </font>
+                </Button>
+                <Button fx:id="showAllButton" mnemonicParsing="false" onMouseClicked="#handleShowAll"
+                        text="Hiển thị tất cả" textAlignment="CENTER" wrapText="true">
+                    <font>
+                        <Font size="14.0"/>
+                    </font>
+                </Button>
+            </children>
+        </VBox>
+        <Line endX="128.0" layoutX="928.0" layoutY="212.0" startX="-144.0"/>
+        <Label layoutX="778.0" layoutY="112.0" text="Từ khóa" textFill="#d219bc">
+            <font>
+                <Font size="14.0"/>
+            </font>
+        </Label>
+    </children>
 </AnchorPane>

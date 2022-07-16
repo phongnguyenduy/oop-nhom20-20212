@@ -44,98 +44,105 @@ public class VaccinationScheduleUIController implements Initializable {
     @FXML
     private TableView<VaccinationSchedule> tableView;
     @FXML
-    private TableColumn<VaccinationSchedule,Integer> idColumn;
+    private TableColumn<VaccinationSchedule, Integer> idColumn;
     @FXML
-    private TableColumn<VaccinationSchedule,String> nameColumn;
+    private TableColumn<VaccinationSchedule, String> nameColumn;
     @FXML
-    private TableColumn<VaccinationSchedule,String> addressColumn;
+    private TableColumn<VaccinationSchedule, String> addressColumn;
     @FXML
-    private TableColumn<VaccinationSchedule,String> timeColumn;
+    private TableColumn<VaccinationSchedule, String> timeColumn;
     @FXML
-    private TableColumn<VaccinationSchedule,Integer> amountColumn;
+    private TableColumn<VaccinationSchedule, Integer> amountColumn;
     @FXML
     private ObservableList<VaccinationSchedule> list;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        list=  FXCollections.observableArrayList(new UpdateHome().getList());
-        idColumn.setCellValueFactory(new PropertyValueFactory<VaccinationSchedule,Integer>("id"));
-        nameColumn.setCellValueFactory(new PropertyValueFactory<VaccinationSchedule,String>("name"));
-        addressColumn.setCellValueFactory(new PropertyValueFactory<VaccinationSchedule,String>("address"));
-        timeColumn.setCellValueFactory(new PropertyValueFactory<VaccinationSchedule,String>("time"));
-        amountColumn.setCellValueFactory(new PropertyValueFactory<VaccinationSchedule,Integer>("amount"));
+        list = FXCollections.observableArrayList(new UpdateHome().getList());
+        idColumn.setCellValueFactory(new PropertyValueFactory<VaccinationSchedule, Integer>("id"));
+        nameColumn.setCellValueFactory(new PropertyValueFactory<VaccinationSchedule, String>("name"));
+        addressColumn.setCellValueFactory(new PropertyValueFactory<VaccinationSchedule, String>("address"));
+        timeColumn.setCellValueFactory(new PropertyValueFactory<VaccinationSchedule, String>("time"));
+        amountColumn.setCellValueFactory(new PropertyValueFactory<VaccinationSchedule, Integer>("amount"));
         tableView.setItems(list);
         tableView.setOnMouseClicked(event -> {
-            VaccinationSchedule s=tableView.getSelectionModel().getSelectedItem();
+            VaccinationSchedule s = tableView.getSelectionModel().getSelectedItem();
             idText.setText(String.valueOf(s.getId()));
             nameText.setText(s.getName());
             amountText.setText(String.valueOf(s.getAmount()));
             addressText.setText(s.getAddress());
-            String time=s.getTime();
-            timePicker.setValue(LocalDate.of(Integer.parseInt(time.substring(0,4)),
+            String time = s.getTime();
+            timePicker.setValue(LocalDate.of(Integer.parseInt(time.substring(0, 4)),
                     Integer.parseInt(time.substring(5, 7)),
-                    Integer.parseInt(time.substring(8,10))));
-            if(tableView.getSelectionModel().isEmpty()) {
+                    Integer.parseInt(time.substring(8, 10))));
+            if (tableView.getSelectionModel().isEmpty()) {
                 Reset();
             }
         });
 
     }
-    public void Reset(){
+
+    public void Reset() {
         idText.clear();
         addressText.clear();
         nameText.clear();
         amountText.clear();
         timePicker.setValue(null);
     }
-    public void setShowButton(ActionEvent event){
+
+    public void setShowButton(ActionEvent event) {
         tableView.setItems(FXCollections.observableArrayList(new UpdateHome().getList()));
         Reset();
     }
-    public void setAddButton(ActionEvent event){
-        String tmp= String.valueOf(timePicker.getValue());
+
+    public void setAddButton(ActionEvent event) {
+        String tmp = String.valueOf(timePicker.getValue());
         VaccinationSchedule s = new VaccinationSchedule(
                 Integer.parseInt(idText.getText()),
                 nameText.getText(),
                 Integer.parseInt(amountText.getText()),
                 addressText.getText(),
-                tmp );
+                tmp);
         new UpdateHome().AddStudent(s);
-        ListSchedule=FXCollections.observableArrayList(new UpdateHome().getList());
+        ListSchedule = FXCollections.observableArrayList(new UpdateHome().getList());
         tableView.setItems(ListSchedule);
         Reset();
     }
-    public void Update(ActionEvent event){
-        String tmp1= String.valueOf(timePicker.getValue());
-        VaccinationSchedule s=new VaccinationSchedule(
+
+    public void Update(ActionEvent event) {
+        String tmp1 = String.valueOf(timePicker.getValue());
+        VaccinationSchedule s = new VaccinationSchedule(
                 Integer.parseInt(idText.getText()),
                 nameText.getText(),
                 Integer.parseInt(amountText.getText()),
                 addressText.getText(),
                 tmp1);
         new UpdateHome().updateTable(s);
-        ListSchedule=FXCollections.observableArrayList(new UpdateHome().getList());
+        ListSchedule = FXCollections.observableArrayList(new UpdateHome().getList());
         tableView.setItems(ListSchedule);
         Reset();
     }
-    public void setDeleteButton(ActionEvent event){
+
+    public void setDeleteButton(ActionEvent event) {
         String ID = idText.getText();
         new UpdateHome().Delete(ID);
-        ListSchedule=FXCollections.observableArrayList(new UpdateHome().getList());
+        ListSchedule = FXCollections.observableArrayList(new UpdateHome().getList());
         tableView.setItems(ListSchedule);
         Reset();
     }
-    public void setSearchButton(ActionEvent event){
+
+    public void setSearchButton(ActionEvent event) {
         String search = searchText.getText();
         boolean checkIsTime = dateCheck.isSelected();
         boolean checkIsNumber = numberCheck.isSelected();
-        tableView.setItems(FXCollections.observableList(new UpdateHome().SearchTable(search,checkIsTime,checkIsNumber)));
+        tableView.setItems(FXCollections.observableList(new UpdateHome().SearchTable(search, checkIsTime, checkIsNumber)));
         Reset();
     }
-    public void showSum(ActionEvent event){
-        String search1= String.valueOf(dateStart.getValue());
+
+    public void showSum(ActionEvent event) {
+        String search1 = String.valueOf(dateStart.getValue());
         String search2 = String.valueOf(dateFinish.getValue());
-        sumText.setText(String.valueOf(new UpdateHome().sumNumberVaccine(search1,search2)));
+        sumText.setText(String.valueOf(new UpdateHome().sumNumberVaccine(search1, search2)));
     }
 
 }

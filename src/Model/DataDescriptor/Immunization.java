@@ -16,7 +16,8 @@ public class Immunization {
     private int numberInjections;
     //Số mũi tiêm
 
-    public Immunization(){}
+    public Immunization() {
+    }
 
     public Immunization(String id, String medicalIdentifier,
                         String type, String date, String lotNumber,

@@ -48,25 +48,25 @@ public class ImmunizationDAO {
     }
 
     //Tìm kiếm danh sách các đối tượng mà 1 thuộc tính của nó có giá trị = search trừ số mũi tiêm
-    public ArrayList<Immunization> getImmunization(String search,boolean checkIsNumber,boolean checkIsTime) {
+    public ArrayList<Immunization> getImmunization(String search, boolean checkIsNumber, boolean checkIsTime) {
 
         String sql;
-        if (checkIsTime){
-            sql = "SELECT * FROM thong_tin_tiem_chung WHERE ngay_tiem =\'"+search+"\'";
+        if (checkIsTime) {
+            sql = "SELECT * FROM thong_tin_tiem_chung WHERE ngay_tiem ='" + search + "'";
 
         } else {
 
-            if(checkIsNumber){
-                sql = "SELECT * FROM thong_tin_tiem_chung WHERE so_mui_tiem ="+search;
+            if (checkIsNumber) {
+                sql = "SELECT * FROM thong_tin_tiem_chung WHERE so_mui_tiem =" + search;
 
-            }else{
+            } else {
 
-                sql = "SELECT * FROM thong_tin_tiem_chung WHERE id_1 LIKE \'" + search + "\'"+
-                "OR ma_dinh_danh_y_te LIKE \'"+search+"\'"+
-                "OR loai_vaccine LIKE \'"+search+"\'"+
-                "OR ngay_tiem LIKE \'"+search+"\'"+
-                "OR so_lo_vaccine LIKE \'"+search+"\'"+
-                "OR tinh_trang_sau_tiem LIKE \'"+search+"\'";
+                sql = "SELECT * FROM thong_tin_tiem_chung WHERE id_1 LIKE '" + search + "'" +
+                        "OR ma_dinh_danh_y_te LIKE '" + search + "'" +
+                        "OR loai_vaccine LIKE '" + search + "'" +
+                        "OR ngay_tiem LIKE '" + search + "'" +
+                        "OR so_lo_vaccine LIKE '" + search + "'" +
+                        "OR tinh_trang_sau_tiem LIKE '" + search + "'";
             }
         }
 
@@ -94,24 +94,24 @@ public class ImmunizationDAO {
     }
 
     //Thêm vaccine và các thông tin liên quan khi một người được tiêm
-    public void addImmunization (Immunization vaccine){
+    public void addImmunization(Immunization vaccine) {
 
         String sql = "INSERT INTO thong_tin_tiem_chung VALUES (?,?,?,?,?,?,?)";
-        String time= vaccine.getDate();
-        LocalDate localDate = LocalDate.of(Integer.parseInt(time.substring(0,4)),
+        String time = vaccine.getDate();
+        LocalDate localDate = LocalDate.of(Integer.parseInt(time.substring(0, 4)),
                 Integer.parseInt(time.substring(5, 7)),
-                Integer.parseInt(time.substring(8,10)));
-        try{
+                Integer.parseInt(time.substring(8, 10)));
+        try {
             ps = con.prepareStatement(sql);
-            ps.setString(1,vaccine.getId());
-            ps.setString(2,vaccine.getMedicalIdentifier());
-            ps.setString(3,vaccine.getType());
-            ps.setObject(4,localDate);
-            ps.setString(5,vaccine.getLotNumber());
-            ps.setString(6,vaccine.getPostInjectionCondition());
-            ps.setInt(7,vaccine.getNumberInjections());
+            ps.setString(1, vaccine.getId());
+            ps.setString(2, vaccine.getMedicalIdentifier());
+            ps.setString(3, vaccine.getType());
+            ps.setObject(4, localDate);
+            ps.setString(5, vaccine.getLotNumber());
+            ps.setString(6, vaccine.getPostInjectionCondition());
+            ps.setInt(7, vaccine.getNumberInjections());
             ps.executeUpdate();
-        }catch (SQLException sqlException){
+        } catch (SQLException sqlException) {
             sqlException.printStackTrace();
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Không thành công, vui lòng kiểm tra lại!!!");
@@ -120,13 +120,13 @@ public class ImmunizationDAO {
     }
 
     // vaccine và các thông tin liên quan khi một người được tiêm
-    public void deleteImmunization(String Id){
+    public void deleteImmunization(String Id) {
 
-        String sql = "DELETE FROM thong_tin_tiem_chung WHERE id_1 = \'"+Id+"\'";
-        try{
+        String sql = "DELETE FROM thong_tin_tiem_chung WHERE id_1 = '" + Id + "'";
+        try {
             ps = con.prepareStatement(sql);
             ps.executeUpdate();
-        }catch (SQLException sqlException){
+        } catch (SQLException sqlException) {
             sqlException.printStackTrace();
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Không thành công, vui lòng kiểm tra lại!!!");
@@ -135,27 +135,27 @@ public class ImmunizationDAO {
     }
 
     //Cập nhật lại thông tin vaccine và các thông tin liên quan khi một người được tiêm
-    public void updateImmunization(Immunization vaccine){
+    public void updateImmunization(Immunization vaccine) {
 
         String sql = "UPDATE thong_tin_tiem_chung SET  ma_dinh_danh_y_te = ?,loai_vaccine = ?, " +
                 "ngay_tiem = ?,so_lo_vaccine =?, tinh_trang_sau_tiem = ? , so_mui_tiem = ? " +
                 "WHERE  id_1 = ?";
-        String time= vaccine.getDate();
-        LocalDate localDate = LocalDate.of(Integer.parseInt(time.substring(0,4)),
+        String time = vaccine.getDate();
+        LocalDate localDate = LocalDate.of(Integer.parseInt(time.substring(0, 4)),
                 Integer.parseInt(time.substring(5, 7)),
-                Integer.parseInt(time.substring(8,10)));
-        try{
+                Integer.parseInt(time.substring(8, 10)));
+        try {
             ps = con.prepareStatement(sql);
-            ps.setString(1,vaccine.getMedicalIdentifier());
-            ps.setString(2,vaccine.getType());
-            ps.setObject(3,localDate);
-            ps.setString(4,vaccine.getLotNumber());
-            ps.setString(5 ,vaccine.getPostInjectionCondition());
-            ps.setInt( 6,vaccine.getNumberInjections());
-            ps.setString(7,vaccine.getId());
+            ps.setString(1, vaccine.getMedicalIdentifier());
+            ps.setString(2, vaccine.getType());
+            ps.setObject(3, localDate);
+            ps.setString(4, vaccine.getLotNumber());
+            ps.setString(5, vaccine.getPostInjectionCondition());
+            ps.setInt(6, vaccine.getNumberInjections());
+            ps.setString(7, vaccine.getId());
 
             ps.executeUpdate();
-        }catch (SQLException sqlException){
+        } catch (SQLException sqlException) {
             sqlException.printStackTrace();
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Không thành công, vui lòng kiểm tra lại!!!");

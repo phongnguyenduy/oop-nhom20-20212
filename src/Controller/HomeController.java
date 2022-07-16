@@ -1,4 +1,5 @@
 package Controller;
+
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,71 +24,77 @@ public class HomeController implements Initializable {
     @FXML
     //private BorderPane borderPane;
     private GridPane gridPane;
+
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle){
+    public void initialize(URL url, ResourceBundle resourceBundle) {
     }
 
     @FXML
-    public void LoadIndividualUI(MouseEvent event){
+    public void LoadIndividualUI(MouseEvent event) {
         Load("IndividualUI");
     }
 
     @FXML
-    public void LoadVaccinationUI(MouseEvent event){
+    public void LoadVaccinationUI(MouseEvent event) {
         Load("VaccinationUI");
     }
 
     @FXML
-    public void LoadMotherUI(MouseEvent event){
+    public void LoadMotherUI(MouseEvent event) {
         Load("MotherUI");
     }
 
     @FXML
-    public void LoadChildrenUI(MouseEvent event){
+    public void LoadChildrenUI(MouseEvent event) {
         Load("ChildrenUI");
     }
 
     @FXML
-    public void LoadVaccinationScheduleUI(MouseEvent event){
+    public void LoadVaccinationScheduleUI(MouseEvent event) {
         Load("VaccinationScheduleUI");
     }
 
     @FXML
-    public void LoadMailUI(MouseEvent event){
+    public void LoadMailUI(MouseEvent event) {
         Load("MailUI");
     }
 
     @FXML
-    public void LoadSearchUI(MouseEvent event){
+    public void LoadSearchUI(MouseEvent event) {
         Load("SearchUI");
     }
 
     @FXML
-    public void showAbout(MouseEvent event){ Load("About");}
+    public void showAbout(MouseEvent event) {
+        Load("About");
+    }
 
     Parent root;
+
     public Node getNodeByRC(int r, int c, GridPane gp) {
         ObservableList<Node> children = gp.getChildren();
-        for (Node node: children) {
+        for (Node node : children) {
             int dr, dc;
-            Integer tr = gp.getRowIndex(node);
-            if (tr == null) dr = 0; else dr = tr.intValue();
-            Integer tc = gp.getColumnIndex(node);
-            if (tc == null) dc = 0; else dc = tc.intValue();
+            Integer tr = GridPane.getRowIndex(node);
+            if (tr == null) dr = 0;
+            else dr = tr.intValue();
+            Integer tc = GridPane.getColumnIndex(node);
+            if (tc == null) dc = 0;
+            else dc = tc.intValue();
             if (dr == r && dc == c) return node;
         }
         return null;
     }
 
-    public void Load(String Ui){
+    public void Load(String Ui) {
         try {
-            root = FXMLLoader.load(getClass().getResource("/View/GUI/" +Ui + ".fxml"));
-        }catch (IOException ex){
-            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE,null,ex);
+            root = FXMLLoader.load(getClass().getResource("/View/GUI/" + Ui + ".fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        Node contentNode = getNodeByRC(1,1,gridPane);
+        Node contentNode = getNodeByRC(1, 1, gridPane);
         if (contentNode != null) gridPane.getChildren().remove(contentNode);
-        gridPane.add(root,1,1);
+        gridPane.add(root, 1, 1);
     }
 
     public void goBack(MouseEvent event) throws IOException {
