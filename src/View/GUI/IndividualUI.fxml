@@ -7,6 +7,9 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -19,7 +22,15 @@
 
 <AnchorPane prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.IndividualUIController">
    <children>
-      <Text fill="#0026ff" layoutX="456.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="THÔNG TIN CÁ NHÂN">
+      <ImageView fitHeight="650.0" fitWidth="1100.0">
+         <image>
+            <Image url="@../newImage/AppBackgrond.jpg" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="0.55" />
+         </effect>
+      </ImageView>
+      <Text fill="#d219bc" layoutX="456.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="THÔNG TIN CÁ NHÂN">
          <font>
             <Font name="System Bold" size="28.0" />
          </font>
@@ -38,7 +49,7 @@
          <children>
             <HBox alignment="CENTER_RIGHT" prefHeight="80.0" prefWidth="180.0" spacing="10.0">
                <children>
-                  <Label alignment="CENTER_RIGHT" text="Họ tên" textAlignment="RIGHT" textFill="#0026ff" wrapText="true">
+                  <Label alignment="CENTER_RIGHT" text="Họ tên" textAlignment="RIGHT" textFill="#d219bc" wrapText="true">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -48,7 +59,7 @@
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="80.0" prefWidth="180.0" spacing="10.0" GridPane.rowIndex="1">
                <children>
-                  <Label alignment="CENTER_RIGHT" text="Giới tính" textAlignment="RIGHT" textFill="#0026ff" wrapText="true">
+                  <Label alignment="CENTER_RIGHT" text="Giới tính" textAlignment="RIGHT" textFill="#d219bc" wrapText="true">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -58,7 +69,7 @@
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="80.0" prefWidth="180.0" spacing="10.0" GridPane.rowIndex="2">
                <children>
-                  <Label alignment="CENTER_RIGHT" text="SĐT" textAlignment="RIGHT" textFill="#0026ff" wrapText="true">
+                  <Label alignment="CENTER_RIGHT" text="SĐT" textAlignment="RIGHT" textFill="#d219bc" wrapText="true">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -68,7 +79,7 @@
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="80.0" prefWidth="180.0" spacing="10.0" GridPane.columnIndex="1">
                <children>
-                  <Label alignment="CENTER_RIGHT" text="Mã định danh y tế" textAlignment="RIGHT" textFill="#0026ff" wrapText="true">
+                  <Label alignment="CENTER_RIGHT" text="Mã định danh y tế" textAlignment="RIGHT" textFill="#d219bc" wrapText="true">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -78,7 +89,7 @@
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="80.0" prefWidth="180.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
-                  <Label alignment="CENTER_RIGHT" text="Ngày sinh" textAlignment="RIGHT" textFill="#0026ff" wrapText="true">
+                  <Label alignment="CENTER_RIGHT" text="Ngày sinh" textAlignment="RIGHT" textFill="#d219bc" wrapText="true">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -88,7 +99,7 @@
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="80.0" prefWidth="180.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
-                  <Label alignment="CENTER_RIGHT" text="Email" textAlignment="RIGHT" textFill="#0026ff" wrapText="true">
+                  <Label alignment="CENTER_RIGHT" text="Email" textAlignment="RIGHT" textFill="#d219bc" wrapText="true">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -98,7 +109,7 @@
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="80.0" prefWidth="180.0" spacing="10.0" GridPane.columnIndex="2">
                <children>
-                  <Label alignment="CENTER_RIGHT" text="CCCD" textAlignment="RIGHT" textFill="#0026ff" wrapText="true">
+                  <Label alignment="CENTER_RIGHT" text="CCCD" textAlignment="RIGHT" textFill="#d219bc" wrapText="true">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -108,7 +119,7 @@
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="80.0" prefWidth="180.0" spacing="10.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <children>
-                  <Label alignment="CENTER_RIGHT" text="Địa chỉ" textAlignment="RIGHT" textFill="#0026ff" wrapText="true">
+                  <Label alignment="CENTER_RIGHT" text="Địa chỉ" textAlignment="RIGHT" textFill="#d219bc" wrapText="true">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -118,7 +129,7 @@
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="80.0" prefWidth="239.0" spacing="10.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <children>
-                  <Label alignment="CENTER_RIGHT" text="Tình trạng tiêm chủng" textAlignment="RIGHT" textFill="#0026ff" wrapText="true">
+                  <Label alignment="CENTER_RIGHT" text="Tình trạng tiêm chủng" textAlignment="RIGHT" textFill="#d219bc" wrapText="true">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -138,7 +149,7 @@
       </VBox>
       <Line endX="-100.0" endY="-149.33334350585938" layoutX="982.0" layoutY="272.0" startX="-100.0" startY="16.0" />
       <TextField fx:id="searchText" layoutX="904.0" layoutY="122.0" prefHeight="26.0" prefWidth="158.0" promptText="Tìm kiếm..." />
-      <CheckBox fx:id="dateCheck" layoutX="922.0" layoutY="163.0" mnemonicParsing="false" text="Là ngày tháng ?" textFill="#0026ff">
+      <CheckBox fx:id="dateCheck" layoutX="922.0" layoutY="163.0" mnemonicParsing="false" text="Là ngày tháng ?" textFill="#d219bc">
          <font>
             <Font size="14.0" />
          </font></CheckBox>

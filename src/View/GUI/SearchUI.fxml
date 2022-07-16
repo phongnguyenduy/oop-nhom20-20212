@@ -4,12 +4,23 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.web.WebView?>
 
 <AnchorPane prefHeight="586.0" prefWidth="1035.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.SearchUIController">
    <children>
+      <ImageView fitHeight="650.0" fitWidth="1100.0">
+         <image>
+            <Image url="@../newImage/AppBackgrond.jpg" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="0.55" />
+         </effect>
+      </ImageView>
       <WebView fx:id="webView" layoutX="22.0" layoutY="104.0" prefHeight="467.0" prefWidth="997.0" />
       <TextField fx:id="searchField" layoutX="198.0" layoutY="24.0" prefHeight="27.0" prefWidth="362.0" promptText="Tìm kiếm thông tin phòng khám">
          <font>

@@ -17,38 +17,38 @@
             <ColorAdjust brightness="0.55" />
          </effect>
       </ImageView>
-      <Text fill="#0017ea" layoutX="397.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thông tin nhóm" textAlignment="CENTER" wrappingWidth="266.13671875">
+      <Text fill="#d219bc" layoutX="397.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thông tin nhóm" textAlignment="CENTER" wrappingWidth="266.13671875">
          <font>
             <Font size="28.0" />
          </font>
       </Text>
-      <Text fill="#0017ea" layoutX="472.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Project nhóm 20">
+      <Text fill="#d219bc" layoutX="472.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Project nhóm 20">
          <font>
             <Font size="16.0" />
          </font>
       </Text>
-      <Text fill="#0017ea" layoutX="354.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nguyễn Duy Phong">
+      <Text fill="#d219bc" layoutX="354.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nguyễn Duy Phong">
          <font>
             <Font size="16.0" />
          </font></Text>
-      <Text fill="#0017ea" layoutX="354.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nguyễn Thị Hồng Vân">
+      <Text fill="#d219bc" layoutX="354.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nguyễn Thị Hồng Vân">
          <font>
             <Font size="16.0" />
          </font></Text>
-      <Text fill="#0017ea" layoutX="354.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nguyễn Tất Minh">
+      <Text fill="#d219bc" layoutX="354.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nguyễn Tất Minh">
          <font>
             <Font size="16.0" />
          </font></Text>
-      <Text fill="#0017ea" layoutX="588.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nguyễn Bá Tuấn">
+      <Text fill="#d219bc" layoutX="588.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nguyễn Bá Tuấn">
          <font>
             <Font size="16.0" />
          </font></Text>
-      <Text fill="#0017ea" layoutX="443.0" layoutY="354.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User manual here" textAlignment="CENTER">
+      <Text fill="#d219bc" layoutX="443.0" layoutY="354.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User manual here" textAlignment="CENTER">
          <font>
             <Font size="21.0" />
          </font>
       </Text>
-      <Text fill="#0017ea" layoutX="588.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vũ Nam Hoàng">
+      <Text fill="#d219bc" layoutX="588.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vũ Nam Hoàng">
          <font>
             <Font size="16.0" />
          </font>

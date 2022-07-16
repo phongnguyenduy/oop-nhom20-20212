@@ -20,7 +20,7 @@
             </Text>
             <TextField fx:id="inpEmail" layoutX="46.0" layoutY="76.0" promptText="Email" />
             <PasswordField fx:id="inpPassword" layoutX="46.0" layoutY="116.0" promptText="Mật khẩu" />
-            <Button fx:id="signInButton" layoutX="75.0" layoutY="155.0" mnemonicParsing="false" onAction="#handleSignIn" prefHeight="25.0" prefWidth="91.0" style="-fx-background-color: #c13346; -fx-background-radius: 1em;" text="ĐĂNG NHẬP" textFill="WHITE">
+            <Button layoutX="75.0" layoutY="155.0" mnemonicParsing="false" onAction="#handleSignIn" prefHeight="25.0" prefWidth="91.0" style="-fx-background-color: #c13346; -fx-background-radius: 1em;" text="ĐĂNG NHẬP" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -29,7 +29,7 @@
                <font>
                   <Font name="System Italic" size="12.0" />
                </font></Label>
-            <Label fx:id="label" focusTraversable="false" layoutX="14.0" layoutY="222.0" prefHeight="37.0" prefWidth="219.0" text="Tên tài khoản, mật khẩu hoặc email không đúng!" textAlignment="CENTER" textFill="RED" wrapText="true">
+            <Label fx:id="label" layoutX="14.0" layoutY="222.0" prefHeight="37.0" prefWidth="219.0" text="Tên tài khoản, mật khẩu hoặc email không đúng!" textAlignment="CENTER" textFill="RED" wrapText="true">
                <font>
                   <Font name="System Italic" size="12.0" />
                </font></Label>

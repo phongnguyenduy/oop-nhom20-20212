@@ -187,5 +187,10 @@
             <Insets top="10.0" />
          </padding>
       </VBox>
+      <ImageView fitHeight="650.0" fitWidth="1100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <image>
+            <Image url="@../newImage/AppBackgrond.jpg" />
+         </image>
+      </ImageView>
    </children>
 </GridPane>

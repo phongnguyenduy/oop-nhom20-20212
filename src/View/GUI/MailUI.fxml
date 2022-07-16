@@ -5,6 +5,9 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -13,7 +16,15 @@
 
 <AnchorPane prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MailUIController">
    <children>
-      <Text fill="#0026ff" layoutX="341.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TẠO SỰ KIỆN VÀ GỬI EMAIL" textAlignment="CENTER" wrappingWidth="407.2852096557617">
+      <ImageView fitHeight="650.0" fitWidth="1100.0" preserveRatio="true">
+         <image>
+            <Image url="@../newImage/AppBackgrond.jpg" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="0.55" />
+         </effect>
+      </ImageView>
+      <Text fill="#d219bc" layoutX="341.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TẠO SỰ KIỆN VÀ GỬI EMAIL" textAlignment="CENTER" wrappingWidth="407.2852096557617">
          <font>
             <Font name="System Bold" size="28.0" />
          </font>
@@ -32,11 +43,11 @@
             <Font size="14.0" />
          </font></Button>
       <TextField fx:id="EmailAddress" layoutX="655.0" layoutY="214.0" prefHeight="26.0" prefWidth="304.0" />
-      <VBox layoutX="76.0" layoutY="112.0" prefHeight="479.0" prefWidth="339.0" spacing="10.0">
+      <VBox layoutX="76.0" layoutY="112.0" prefHeight="479.0" prefWidth="368.0" spacing="10.0">
          <children>
             <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="200.0" spacing="10.0">
                <children>
-                  <Label text="To" textFill="#0026ff">
+                  <Label text="To" textFill="#d219bc">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -46,7 +57,7 @@
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="200.0" spacing="10.0">
                <children>
-                  <Label text="CC" textFill="#0026ff">
+                  <Label text="CC" textFill="#d219bc">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -56,7 +67,7 @@
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="200.0" spacing="10.0">
                <children>
-                  <Label text="BCC" textFill="#0026ff">
+                  <Label text="BCC" textFill="#d219bc">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -66,7 +77,7 @@
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="200.0" spacing="10.0">
                <children>
-                  <Label text="Subject" textFill="#0026ff">
+                  <Label text="Subject" textFill="#d219bc">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -76,7 +87,7 @@
             </HBox>
             <VBox prefHeight="281.0" prefWidth="339.0" spacing="10.0">
                <children>
-                  <Label text="Content" textFill="#0026ff">
+                  <Label text="Content" textFill="#d219bc">
                      <font>
                         <Font size="14.0" />
                      </font>
