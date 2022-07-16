@@ -11,8 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="670.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/15.0.1"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ChartController">
+<AnchorPane fx:id="anchorPane" prefHeight="670.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ChartController">
     <children>
         <TableView fx:id="growthNumeralTable" layoutX="1013.0" layoutY="134.0" prefHeight="335.0" prefWidth="254.0">
             <columns>
@@ -28,8 +27,7 @@
             </font>
         </Label>
         <Button layoutX="995.0" layoutY="544.0" mnemonicParsing="false" onAction="#AddButton" text="Add"/>
-        <Button layoutX="1068.0" layoutY="544.0" mnemonicParsing="false" onAction="#EditButton" prefHeight="25.0"
-                prefWidth="46.0" text="Edit"/>
+        <Button layoutX="1068.0" layoutY="544.0" mnemonicParsing="false" onAction="#EditButton" prefHeight="25.0" prefWidth="46.0" text="Edit"/>
         <Button layoutX="1142.0" layoutY="544.0" mnemonicParsing="false" onAction="#DeleteButton" text="Delete"/>
         <LineChart fx:id="heightLineChart" layoutX="40.0" layoutY="78.0" prefHeight="521.0" prefWidth="464.0">
             <xAxis>
@@ -78,8 +76,7 @@
         <Label layoutX="1109.0" layoutY="480.0" text="Height"/>
         <Label layoutX="1207.0" layoutY="480.0" text="Weight"/>
         <Button layoutX="1226.0" layoutY="544.0" mnemonicParsing="false" onAction="#goBack" text="Back"/>
-        <Label fx:id="genderLabel" layoutX="500.0" layoutY="14.0" prefHeight="49.0" prefWidth="141.0" text="Giới tính"
-               textFill="#509e7f">
+        <Label fx:id="genderLabel" layoutX="500.0" layoutY="14.0" prefHeight="49.0" prefWidth="141.0" text="Giới tính" textFill="#509e7f">
             <font>
                 <Font name="System Bold" size="33.0"/>
             </font>
