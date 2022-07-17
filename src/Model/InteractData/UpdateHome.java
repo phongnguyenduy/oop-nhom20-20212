@@ -163,7 +163,7 @@ public class UpdateHome {
     }
 
     public int sumNumberVaccine(String search1, String search2) {
-        String sql = "SELECT SUM(so_mui_tiem) AS \"sum\" FROM thong_tin_tiem_chung WHERE ngay_tiem BETWEEN '" +
+        String sql = "SELECT SUM(amount) AS \"sum\" FROM lich_tiem_chung WHERE time BETWEEN '" +
                 search1 + "'AND'" + search2 + "'";
         int sum = 0;
         try {
